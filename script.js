@@ -99,7 +99,7 @@ contactForm.addEventListener('submit', async (e) => {
         contactForm.reset();
 
         // Optionally, redirect to WhatsApp
-        const phone = '91XXXXXXXXXX'; // Replace with actual number
+        const phone = '919912951505'; // Replace with actual number
         const message = encodeURIComponent(`Hi, I'm interested in ${data.interest}. My name is ${data.name}.`);
         // window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
 
