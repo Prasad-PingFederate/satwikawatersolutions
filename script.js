@@ -2,9 +2,21 @@
 const mobileToggle = document.getElementById('mobileToggle');
 const navLinks = document.querySelector('.nav-links');
 
+// Voice Dictation Logic
+let isDictating = false;
+let recognition = null;
+const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+if (SpeechRecognition) {
+    recognition = new SpeechRecognition();
+    recognition.continuous = true;
+    recognition.interimResults = true;
+    recognition.lang = 'en-US';
+}
+
 mobileToggle.addEventListener('click', () => {
     navLinks.classList.toggle('active');
-    
+
     // Animate hamburger
     const spans = mobileToggle.querySelectorAll('span');
     if (navLinks.classList.contains('active')) {
@@ -35,13 +47,13 @@ let lastScroll = 0;
 
 window.addEventListener('scroll', () => {
     const currentScroll = window.pageYOffset;
-    
+
     if (currentScroll > 100) {
         navbar.classList.add('scrolled');
     } else {
         navbar.classList.remove('scrolled');
     }
-    
+
     lastScroll = currentScroll;
 });
 
@@ -65,32 +77,32 @@ const contactForm = document.getElementById('contactForm');
 
 contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
-    
+
     const formData = new FormData(contactForm);
     const data = Object.fromEntries(formData.entries());
-    
+
     // Show loading state
     const submitBtn = contactForm.querySelector('button[type="submit"]');
     const originalText = submitBtn.textContent;
     submitBtn.textContent = 'Sending...';
     submitBtn.disabled = true;
-    
+
     // Simulate form submission (replace with your actual API endpoint)
     try {
         // Example: await fetch('/api/contact', { method: 'POST', body: JSON.stringify(data) });
-        
+
         // For now, we'll use a simple timeout to simulate
         await new Promise(resolve => setTimeout(resolve, 1000));
-        
+
         // Show success message
         alert('Thank you for your message! We will contact you soon.');
         contactForm.reset();
-        
+
         // Optionally, redirect to WhatsApp
         const phone = '91XXXXXXXXXX'; // Replace with actual number
         const message = encodeURIComponent(`Hi, I'm interested in ${data.interest}. My name is ${data.name}.`);
         // window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
-        
+
     } catch (error) {
         alert('Sorry, there was an error sending your message. Please try calling us directly.');
         console.error('Form submission error:', error);
@@ -155,20 +167,20 @@ document.querySelectorAll('.stat-number').forEach(stat => {
 
 // Add ripple effect to buttons
 document.querySelectorAll('.btn, .product-btn').forEach(button => {
-    button.addEventListener('click', function(e) {
+    button.addEventListener('click', function (e) {
         const ripple = document.createElement('span');
         const rect = this.getBoundingClientRect();
         const size = Math.max(rect.width, rect.height);
         const x = e.clientX - rect.left - size / 2;
         const y = e.clientY - rect.top - size / 2;
-        
+
         ripple.style.width = ripple.style.height = size + 'px';
         ripple.style.left = x + 'px';
         ripple.style.top = y + 'px';
         ripple.classList.add('ripple');
-        
+
         this.appendChild(ripple);
-        
+
         setTimeout(() => ripple.remove(), 600);
     });
 });
@@ -199,6 +211,57 @@ document.head.appendChild(style);
 
 // Initialize page
 window.addEventListener('load', () => {
+    // Voice Dictation Implementation
+    const voiceBtn = document.getElementById('voiceDictateBtn');
+    const messageArea = document.querySelector('textarea[name="message"]');
+
+    if (voiceBtn && recognition && messageArea) {
+        voiceBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (!isDictating) {
+                recognition.start();
+                isDictating = true;
+                voiceBtn.classList.add('active');
+                voiceBtn.innerHTML = '<span class="mic-icon animate-pulse">🛑</span> Stop Dictation';
+            } else {
+                recognition.stop();
+                isDictating = false;
+                voiceBtn.classList.remove('active');
+                voiceBtn.innerHTML = '<span class="mic-icon">🎤</span> Voice Inquiry';
+            }
+        });
+
+        recognition.onresult = (event) => {
+            let interimTranscript = '';
+            let finalTranscript = '';
+
+            for (let i = event.resultIndex; i < event.results.length; ++i) {
+                if (event.results[i].isFinal) {
+                    finalTranscript += event.results[i][0].transcript;
+                } else {
+                    interimTranscript += event.results[i][0].transcript;
+                }
+            }
+
+            if (finalTranscript) {
+                messageArea.value += (messageArea.value ? ' ' : '') + finalTranscript;
+            }
+        };
+
+        recognition.onend = () => {
+            isDictating = false;
+            voiceBtn.classList.remove('active');
+            voiceBtn.innerHTML = '<span class="mic-icon">🎤</span> Voice Inquiry';
+        };
+
+        recognition.onerror = (event) => {
+            console.error('Speech recognition error:', event.error);
+            recognition.stop();
+        };
+    } else if (voiceBtn) {
+        voiceBtn.style.display = 'none'; // Hide if not supported
+    }
+
     // Hide scroll indicator after first scroll
     let hasScrolled = false;
     window.addEventListener('scroll', () => {
