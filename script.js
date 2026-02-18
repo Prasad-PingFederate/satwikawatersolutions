@@ -1,3 +1,41 @@
+// Hero Slider Logic
+const slides = document.querySelectorAll('.slide');
+const nextBtn = document.querySelector('.slider-next');
+const prevBtn = document.querySelector('.slider-prev');
+let currentSlide = 0;
+let slideInterval;
+
+const showSlide = (n) => {
+    slides[currentSlide].classList.remove('active');
+    currentSlide = (n + slides.length) % slides.length;
+    slides[currentSlide].classList.add('active');
+};
+
+const nextSlide = () => showSlide(currentSlide + 1);
+const prevSlide = () => showSlide(currentSlide - 1);
+
+if (nextBtn && prevBtn) {
+    nextBtn.addEventListener('click', () => {
+        nextSlide();
+        resetTimer();
+    });
+    prevBtn.addEventListener('click', () => {
+        prevSlide();
+        resetTimer();
+    });
+}
+
+function startTimer() {
+    slideInterval = setInterval(nextSlide, 5000);
+}
+
+function resetTimer() {
+    clearInterval(slideInterval);
+    startTimer();
+}
+
+startTimer();
+
 // Mobile Navigation Toggle
 const mobileToggle = document.getElementById('mobileToggle');
 const navLinks = document.querySelector('.nav-links');

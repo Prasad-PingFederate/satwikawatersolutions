@@ -74,11 +74,14 @@
                 <span class="logo-text">Sathwika<br><small>Water Solutions</small></span>
             </div>
             <div class="nav-links">
-                <a href="#home" class="nav-link">Home</a>
-                <a href="#about" class="nav-link">About</a>
-                <a href="#products" class="nav-link">Products</a>
-                <a href="#services" class="nav-link">Services</a>
-                <a href="#contact" class="nav-link">Contact</a>
+                <a href="#home" class="nav-link">HOME</a>
+                <a href="#about" class="nav-link">ABOUT</a>
+                <div class="nav-dropdown">
+                    <a href="#products" class="nav-link">PRODUCTS ▾</a>
+                </div>
+                <a href="#services" class="nav-link">SPARES</a>
+                <a href="#reviews" class="nav-link">REVIEWS</a>
+                <a href="#contact" class="nav-link">CONTACT</a>
             </div>
             <button class="mobile-toggle" id="mobileToggle">
                 <span></span>
@@ -88,35 +91,36 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="hero-bg"></div>
-        <div class="container hero-content">
-            <div class="hero-text">
-                <h1 class="hero-title">
-                    <span class="hero-title-line">Pure Water,</span>
-                    <span class="hero-title-line">Pure Life</span>
-                </h1>
-                <h2 style="font-size: 1.25rem; color: var(--primary); margin-bottom: 10px; font-weight: 600;">Best Water
-                    Solutions in Naidupeta</h2>
-                <p class="hero-subtitle">Premium water purification solutions for your home and business in Naidupeta
-                    and Nellore district.</p>
-                <div class="hero-cta">
-                    <a href="#contact" class="btn btn-primary">Get Free Consultation</a>
-                    <a href="tel:+919912951505" class="btn btn-secondary">Call Now</a>
+    <!-- Hero Slider Section -->
+    <section class="hero-slider" id="home">
+        <div class="slider-container">
+            <!-- Slide 1 -->
+            <div class="slide active"
+                style="background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('images/hero_purifier.jpg') center/cover;">
+                <div class="container slide-content">
+                    <div class="slide-text">
+                        <h1 class="hero-title">RO Water Purifiers</h1>
+                        <p class="hero-subtitle">Protect your Family with Purity Drinking Water..</p>
+                        <a href="#products" class="btn-aqua">VIEW <span class="drop-icon">💧</span></a>
+                    </div>
                 </div>
             </div>
-            <div class="hero-visual">
-                <div class="hero-image-container">
-                    <img src="images/hero_purifier.jpg" alt="Premium Water Purifier" class="floating-purifier">
-                    <div class="water-drop-background"></div>
+
+            <!-- Slide 2 -->
+            <div class="slide" style="background: #f0f4f8 url('images/product_combined.jpg') center/contain no-repeat;">
+                <div class="container slide-content">
+                    <div class="slide-text">
+                        <h1 class="hero-title">WELCOME TO<br>AQUA WELT RO</h1>
+                        <p class="hero-subtitle">It's name it's enough for pure & safe drinking water....</p>
+                        <a href="#products" class="btn-aqua">VIEW <span class="drop-icon">💧</span></a>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="scroll-indicator">
-            <span>Scroll to explore</span>
-            <div class="scroll-line"></div>
-        </div>
+
+        <!-- Slider Controls -->
+        <button class="slider-prev">❮</button>
+        <button class="slider-next">❯</button>
     </section>
 
     <!-- Features Section -->
