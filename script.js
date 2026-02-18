@@ -68,40 +68,42 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // 5. Intelligent Form Submission Handling
-    const contactForm = document.getElementById('contactForm');
-    if (contactForm) {
-        contactForm.addEventListener('submit', async (e) => {
+    const handleForm = (formId, type = "Sales") => {
+        const form = document.getElementById(formId);
+        if (!form) return;
+
+        form.addEventListener('submit', async (e) => {
             e.preventDefault();
-            const formData = new FormData(contactForm);
+            const formData = new FormData(form);
             const data = Object.fromEntries(formData.entries());
 
-            // UI Feedback: Loading State
-            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            const submitBtn = form.querySelector('button[type="submit"]');
             const originalText = submitBtn.textContent;
             submitBtn.innerHTML = '<span class="loader"></span> SUBMITTING...';
             submitBtn.disabled = true;
 
             try {
-                // Simulate server processing
                 await new Promise(resolve => setTimeout(resolve, 2000));
 
-                // Success Message
-                alert(`Thank you, ${data.name}! We have received your request regarding "${data.interest}". Our expert will call you within 30 minutes.`);
-                contactForm.reset();
+                const interest = data.interest || data.message || "General Support";
+                alert(`Thank you, ${data.name}! Your ${type} request has been received. Our expert will call you shortly.`);
+                form.reset();
 
-                // Proactive Action: Open WhatsApp with pre-filled details
                 const phone = '919912951505';
-                const message = encodeURIComponent(`Hi Sathwika Water Solutions, I just submitted a request on your website. My name is ${data.name} and I am interested in ${data.interest}.`);
+                const message = encodeURIComponent(`Hi Sathwika Water Solutions, I just submitted a ${type} request. Name: ${data.name}. Topic: ${interest}`);
                 window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
 
             } catch (error) {
-                alert('Connection timed out. Please contact us directly via the WhatsApp button or Hotline!');
+                alert('Connection timed out. Please contact us directly via WhatsApp!');
             } finally {
                 submitBtn.innerHTML = originalText;
                 submitBtn.disabled = false;
             }
         });
-    }
+    };
+
+    handleForm('contactForm', 'Sales');
+    handleForm('supportForm', 'Support');
 
     // 6. Dynamic Copyright Year
     const yearSpan = document.getElementById('currentYear');
