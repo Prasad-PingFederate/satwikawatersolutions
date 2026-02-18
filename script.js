@@ -1,80 +1,32 @@
-// Hero Slider Logic
 document.addEventListener('DOMContentLoaded', () => {
-    const slides = document.querySelectorAll('.slide');
-    const nextBtn = document.getElementById('nextBtn');
-    const prevBtn = document.getElementById('prevBtn');
-    let currentSlide = 0;
-    let slideInterval;
-
-    const showSlide = (n) => {
-        slides[currentSlide].classList.remove('active');
-        currentSlide = (n + slides.length) % slides.length;
-        slides[currentSlide].classList.add('active');
-    };
-
-    const nextSlide = () => showSlide(currentSlide + 1);
-    const prevSlide = () => showSlide(currentSlide - 1);
-
-    if (nextBtn && prevBtn) {
-        nextBtn.addEventListener('click', () => {
-            nextSlide();
-            resetTimer();
-        });
-        prevBtn.addEventListener('click', () => {
-            prevSlide();
-            resetTimer();
-        });
-    }
-
-    function startTimer() {
-        slideInterval = setInterval(nextSlide, 6000);
-    }
-
-    function resetTimer() {
-        clearInterval(slideInterval);
-        startTimer();
-    }
-
-    if (slides.length > 0) {
-        startTimer();
-    }
+    // Navbar scroll effect
+    const header = document.querySelector('header');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            header.style.boxShadow = '0 5px 20px rgba(0,0,0,0.1)';
+        } else {
+            header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.05)';
+        }
+    });
 
     // Mobile Navigation Toggle
     const mobileToggle = document.getElementById('mobileToggle');
-    const navLinks = document.querySelector('.nav-links');
+    const navMenu = document.querySelector('.nav-menu');
 
-    if (mobileToggle && navLinks) {
+    if (mobileToggle) {
         mobileToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
+            navMenu.classList.toggle('active');
             mobileToggle.classList.toggle('open');
         });
-
-        // Close mobile menu when clicking on a link
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-                mobileToggle.classList.remove('open');
-            });
-        });
     }
-
-    // Navbar scroll effect
-    const navbar = document.querySelector('.navbar');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-            navbar.style.boxShadow = '0 10px 30px rgba(0,0,0,0.1)';
-        } else {
-            navbar.style.background = 'rgba(255, 255, 255, 0.9)';
-            navbar.style.boxShadow = 'none';
-        }
-    });
 
     // Smooth scroll for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            const target = document.querySelector(targetId);
             if (target) {
                 const offsetTop = target.offsetTop - 80;
                 window.scrollTo({
@@ -85,7 +37,42 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Intersection Observer for scroll animations
+    // Form submission handling
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = new FormData(contactForm);
+            const data = Object.fromEntries(formData.entries());
+
+            // Show loading state
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'SENDING...';
+            submitBtn.disabled = true;
+
+            try {
+                // Simulate form submission delay
+                await new Promise(resolve => setTimeout(resolve, 1500));
+
+                alert('Thank you for your request! We will contact you shortly.');
+                contactForm.reset();
+
+                // Open WhatsApp as a secondary action
+                const phone = '919912951505';
+                const message = encodeURIComponent(`Hi, I'm interested in ${data.interest}. My name is ${data.name}.`);
+                window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
+
+            } catch (error) {
+                alert('There was an error. Please call us directly.');
+            } finally {
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }
+        });
+    }
+
+    // Modern Entrance Animations (Kent Style)
     const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
@@ -100,10 +87,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, observerOptions);
 
-    document.querySelectorAll('.product-card, .feature-item, .contact-info-modern').forEach(el => {
+    document.querySelectorAll('.product-card, .feature-card, .contact-right').forEach(el => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(20px)';
-        el.style.transition = 'all 0.6s ease-out';
+        el.style.transition = 'all 0.8s ease-out';
         observer.observe(el);
     });
 });

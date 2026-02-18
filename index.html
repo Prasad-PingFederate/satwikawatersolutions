@@ -46,211 +46,270 @@
 </head>
 
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container nav-container">
+    <!-- Top Utility Bar -->
+    <div class="top-bar">
+        <div class="container top-bar-content">
+            <div class="contact-links">
+                <a href="tel:+919912951505">📞 +91 99129 51505</a>
+                <a href="mailto:sathwikawatersolutions@gmail.com">✉️ sathwikawatersolutions@gmail.com</a>
+            </div>
+            <div class="location-link">
+                <span>📍 Serving Naidupeta & Sullurpeta</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navigation -->
+    <header>
+        <div class="container header-content">
             <div class="logo">
-                <span class="logo-text">Sathwika<br><small>Water Solutions</small></span>
+                <div class="logo-text">Sathwika <span>Water Solutions</span></div>
             </div>
-            <div class="nav-links">
-                <a href="#home" class="nav-link">HOME</a>
-                <a href="#about" class="nav-link">ABOUT</a>
-                <a href="#products" class="nav-link">PRODUCTS</a>
-                <a href="#services" class="nav-link">SPARES</a>
-                <a href="#reviews" class="nav-link">REVIEWS</a>
-                <a href="#contact" class="nav-link">CONTACT</a>
+            <nav class="nav-menu">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#products" class="nav-link">Products</a>
+                <a href="#services" class="nav-link">Spares</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </nav>
+            <div class="nav-actions">
+                <a href="#contact" class="nav-cta">BOOK SERVICE</a>
             </div>
-            <button class="mobile-toggle" id="mobileToggle">
+            <button class="mobile-toggle" id="mobileToggle" style="display: none;">
                 <span></span><span></span><span></span>
             </button>
         </div>
-    </nav>
+    </header>
 
-    <!-- Hero Slider -->
-    <section class="hero-slider" id="home">
-        <div class="slider-container">
-            <!-- Slide 1: Welcome -->
-            <div class="slide active" style="background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%);">
-                <div class="container slide-content-modern">
-                    <div class="slide-text">
-                        <div class="slide-badge-modern">Official Aqua Welt Dealer</div>
-                        <h1 class="hero-title-modern">Welcome to<br><span class="highlight-text">Sathwika Water
-                                Solutions</span></h1>
-                        <p class="hero-subtitle">Premium RO systems for pure and healthy living in Naidupeta &
-                            Sullurpeta.</p>
-                        <div class="hero-cta-group">
-                            <a href="#products" class="btn-premium">View Products</a>
-                            <a href="tel:+919912951505" class="btn-outline-modern">Fast Service</a>
-                        </div>
-                    </div>
-                    <div class="slide-visual">
-                        <div class="floating-container">
-                            <img src="images/RO.jpeg" alt="Sathwika Water Solutions RO" class="hero-product-img">
-                        </div>
-                    </div>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container hero-grid">
+            <div class="hero-text">
+                <h1>Pure Water for a <br><span>Healthy Life</span></h1>
+                <p>Welcome to <strong>Sathwika Water Solutions</strong>. We provide premium Aqua Welt RO systems with
+                    advanced multi-stage purification technology for your family in Naidupeta & Sullurpeta.</p>
+                <div class="hero-btns">
+                    <a href="#products" class="btn btn-primary">BUY NOW</a>
+                    <a href="#contact" class="btn btn-outline">FREE DEMO</a>
                 </div>
             </div>
-
-            <!-- Slide 2: Technology -->
-            <div class="slide" style="background: linear-gradient(135deg, #ffffff 0%, #e1f5fe 100%);">
-                <div class="container slide-content-modern">
-                    <div class="slide-text">
-                        <div class="slide-badge-modern">Advanced Tech</div>
-                        <h1 class="hero-title-modern">Purest Water with<br><span class="highlight-text">Multi-Stage RO
-                                Tech</span></h1>
-                        <p class="hero-subtitle">Protect your family with Aqua Welt's anti-oxidant alkaline and copper
-                            rich water.</p>
-                        <div class="hero-cta-group">
-                            <a href="#products" class="btn-premium">Explore Tech</a>
-                            <a href="#contact" class="btn-outline-modern">Book Consultation</a>
-                        </div>
-                    </div>
-                    <div class="slide-visual">
-                        <img src="images/product_combined.jpg" alt="Aqua Welt Range" class="hero-product-img">
-                    </div>
-                </div>
+            <div class="hero-image">
+                <img src="images/RO.jpeg" alt="Aqua Welt RO Purifier">
             </div>
-        </div>
-
-        <!-- Slider Controls -->
-        <div class="slider-nav-modern">
-            <button class="slider-prev-modern" id="prevBtn">❮</button>
-            <button class="slider-next-modern" id="nextBtn">❯</button>
         </div>
     </section>
 
-    <!-- Features -->
+    <!-- Trust Features -->
     <section class="features">
         <div class="container">
-            <div class="unified-feature-card">
-                <h2 class="section-title center">Why Choose Sathwika?</h2>
-                <div class="features-list-grid">
-                    <div class="feature-item">
-                        <div class="feature-icon">🏆</div>
-                        <div class="feature-text">
-                            <h3>Premium Quality</h3>
-                            <p>Certified Aqua Welt systems with advanced filtration.</p>
-                        </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">💧</div>
+                    <div class="feature-info">
+                        <h3>99.9% Purity</h3>
+                        <p>Advanced RO+UV+UF purification technology.</p>
                     </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">🔧</div>
-                        <div class="feature-text">
-                            <h3>Expert Support</h3>
-                            <p>Professional installation and lifetime maintenance.</p>
-                        </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <div class="feature-info">
+                        <h3>Official Dealer</h3>
+                        <p>Certified Aqua Welt partner in Nellore district.</p>
                     </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">⚡</div>
-                        <div class="feature-text">
-                            <h3>Fast Service</h3>
-                            <p>Same-day response in Naidupeta & Sullurpeta.</p>
-                        </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔧</div>
+                    <div class="feature-info">
+                        <h3>Quick Service</h3>
+                        <p>Same-day response for all repair needs.</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌟</div>
+                    <div class="feature-info">
+                        <h3>Best Warranty</h3>
+                        <p>Comprehensive support and genuine spares.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Products -->
+    <!-- Modern Products Showcase -->
     <section class="products" id="products">
         <div class="container">
-            <h2 class="section-title center">Our Premium Collection</h2>
+            <div class="section-head">
+                <h2>Our Premium <span>Collection</span></h2>
+                <p>Advanced RO and Water Purification Systems designed for the Indian home.</p>
+            </div>
+
             <div class="products-grid">
                 <!-- Classic Plus -->
                 <div class="product-card">
-                    <div class="product-badge">Best Seller</div>
-                    <div class="product-image">
-                        <img src="images/RO.jpeg" alt="Aqua Welt Classic Plus" class="prod-img">
+                    <div class="product-badge">BEST SELLER</div>
+                    <div class="product-img">
+                        <img src="images/RO.jpeg" alt="Aqua Welt Classic Plus">
                     </div>
-                    <h3 class="product-name">Classic +</h3>
-                    <p class="product-desc">Advanced RO+UV+UF+TDS Control for pure hydration.</p>
-                    <ul class="product-features">
-                        <li>RO+UV+UF Technology</li>
-                        <li>10L Storage</li>
-                        <li>TDS Controller</li>
-                    </ul>
-                    <a href="#contact" class="product-btn">Enquire Now</a>
+                    <div class="product-info">
+                        <h3>Classic +</h3>
+                        <p>Best-in-class RO+UV+UF+TDS Control for pure drinking water.</p>
+                        <ul class="product-features">
+                            <li><i>✓</i> 10L High Capacity Tank</li>
+                            <li><i>✓</i> Fully Automatic Operation</li>
+                            <li><i>✓</i> High Power UV Disinfection</li>
+                        </ul>
+                        <div class="product-price">
+                            <a href="#contact" class="btn btn-primary btn-sm">VIEW DETAILS</a>
+                            <a href="https://wa.me/919912951505" class="btn btn-outline btn-sm">ENQUIRE</a>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Pure Plus -->
                 <div class="product-card">
-                    <div class="product-image">
-                        <img src="images/RO1.jpg" alt="Aqua Welt Pure Plus" class="prod-img">
+                    <div class="product-badge">COPPER TECH</div>
+                    <div class="product-img">
+                        <img src="images/RO1.jpg" alt="Aqua Welt Pure Plus">
                     </div>
-                    <h3 class="product-name">Pure +</h3>
-                    <p class="product-desc">Copper-enriched water for digestion and wellness.</p>
-                    <ul class="product-features">
-                        <li>Copper Tank Benefits</li>
-                        <li>Alkaline Balance</li>
-                        <li>Multi-stage purification</li>
-                    </ul>
-                    <a href="#contact" class="product-btn">Enquire Now</a>
+                    <div class="product-info">
+                        <h3>Pure +</h3>
+                        <p>Infuses the goodness of Copper with multi-stage RO technology.</p>
+                        <ul class="product-features">
+                            <li><i>✓</i> Active Copper Technology</li>
+                            <li><i>✓</i> Alkaline Ph Balancer</li>
+                            <li><i>✓</i> Mineral Guard Protection</li>
+                        </ul>
+                        <div class="product-price">
+                            <a href="#contact" class="btn btn-primary btn-sm">VIEW DETAILS</a>
+                            <a href="https://wa.me/919912951505" class="btn btn-outline btn-sm">ENQUIRE</a>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Pure Pro -->
                 <div class="product-card">
-                    <div class="product-badge">Premium</div>
-                    <div class="product-image">
-                        <img src="images/RO2.jpg" alt="Aqua Welt Pure Pro" class="prod-img">
+                    <div class="product-badge">SS TANK</div>
+                    <div class="product-img">
+                        <img src="images/RO2.jpg" alt="Aqua Welt Pure Pro">
                     </div>
-                    <h3 class="product-name">Pure Pro</h3>
-                    <p class="product-desc">Genuine Stainless Steel storage tank for maximum hygiene.</p>
-                    <ul class="product-features">
-                        <li>SS Storage Tank</li>
-                        <li>Hygienic Well-being</li>
-                        <li>High Life Span</li>
-                    </ul>
-                    <a href="#contact" class="product-btn">Enquire Now</a>
+                    <div class="product-info">
+                        <h3>Pure Pro</h3>
+                        <p>Features a Genuine Stainless Steel storage tank for hygiene.</p>
+                        <ul class="product-features">
+                            <li><i>✓</i> Stainless Steel Storage</li>
+                            <li><i>✓</i> Long Life Membrane</li>
+                            <li><i>✓</i> Wall-Mountable Design</li>
+                        </ul>
+                        <div class="product-price">
+                            <a href="#contact" class="btn btn-primary btn-sm">VIEW DETAILS</a>
+                            <a href="https://wa.me/919912951505" class="btn btn-outline btn-sm">ENQUIRE</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact -->
-    <section class="contact" id="contact">
+    <!-- Contact & Service Section -->
+    <section class="contact-section" id="contact">
         <div class="container">
-            <h2 class="section-title center">Contact Us</h2>
-            <div class="contact-grid">
-                <div class="contact-info-modern">
-                    <div class="contact-item">
-                        <strong>Address</strong>
-                        <p>D.No. 3-5-201, Ramakrishnapuram, Opp. Union Bank, Naidupeta</p>
+            <div class="section-head">
+                <h2>Get in <span>Touch</span></h2>
+                <p>Have questions about a product or need a service visit? We're here to help!</p>
+            </div>
+            <div class="contact-flex">
+                <div class="contact-left">
+                    <div class="contact-info-item">
+                        <h4>📍 Store Location</h4>
+                        <p>SATHWIKA WATER SOLUTIONS<br>D.No. 3-5-201, Ramakrishnapuram,<br>Opp. Union Bank, Naidupeta,
+                            AP 524126</p>
                     </div>
-                    <div class="contact-item">
-                        <strong>Call Us</strong>
-                        <p><a href="tel:+919912951505" style="color:var(--primary); font-weight:700;">+91 99129
-                                51505</a></p>
+                    <div class="contact-info-item">
+                        <h4>📞 Call for Expert Advice</h4>
+                        <p><a href="tel:+919912951505"
+                                style="color:var(--primary); font-size:1.2rem; font-weight:800;">+91 99129 51505</a></p>
                     </div>
-                    <div class="contact-item">
-                        <strong>Email</strong>
+                    <div class="contact-info-item">
+                        <h4>✉️ Email Support</h4>
                         <p>sathwikawatersolutions@gmail.com</p>
                     </div>
-                    <a href="https://wa.me/919912951505" class="btn-premium"
-                        style="display:block; text-align:center; background:#25D366; margin-top:2rem;">Chat on
-                        WhatsApp</a>
+                    <div class="contact-info-item">
+                        <h4>💬 Instant Chat</h4>
+                        <a href="https://wa.me/919912951505" class="btn btn-primary"
+                            style="background: #25D366; border: none;">CHAT ON WHATSAPP</a>
+                    </div>
                 </div>
-                <form class="contact-form-modern">
-                    <input type="text" placeholder="Your Name" required>
-                    <input type="tel" placeholder="Phone Number" required>
-                    <select required>
-                        <option value="">Select Service</option>
-                        <option value="New RO">New RO Purchase</option>
-                        <option value="Service">Service/Repair</option>
-                        <option value="Spares">Replacement Spares</option>
-                    </select>
-                    <textarea rows="4" placeholder="Your Message"></textarea>
-                    <button type="submit" class="btn-premium" style="width:100%; border:none; cursor:pointer;">Send
-                        Inquiry</button>
-                </form>
+                <div class="contact-right">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label>Full Name</label>
+                            <input type="text" class="form-control" name="name" placeholder="Enter your name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Phone Number</label>
+                            <input type="tel" class="form-control" name="phone" placeholder="Enter phone number"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label>I'm interested in</label>
+                            <select class="form-control" name="interest">
+                                <option value="New Purifier">Buying New RO Purifier</option>
+                                <option value="Service">RO Repair & Service</option>
+                                <option value="Exchange">Exchange Old Purifier</option>
+                                <option value="Spares">Genuine Spares & Filters</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Message (Optional)</label>
+                            <textarea class="form-control" name="message" rows="3"
+                                placeholder="How can we help you?"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">REQUEST CALL BACK</button>
+                    </form>
+                </div>
             </div>
         </div>
     </section>
 
-    <footer class="footer">
+    <footer>
         <div class="container">
-            <center>
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>About Sathwika</h4>
+                    <p>Nellore's most trusted partner for Aqua Welt RO systems. Dedicated to providing safe and pure
+                        drinking water solutions.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#products">Our Products</a></li>
+                        <li><a href="#contact">Contact Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Top Products</h4>
+                    <ul>
+                        <li><a href="#products">Aqua Welt Classic +</a></li>
+                        <li><a href="#products">Aqua Welt Pure +</a></li>
+                        <li><a href="#products">Aqua Welt Pure Pro</a></li>
+                        <li><a href="#products">RO Service & Repair</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Service Areas</h4>
+                    <ul>
+                        <li><a href="#">Naidupeta</a></li>
+                        <li><a href="#">Sullurpeta</a></li>
+                        <li><a href="#">Venkatagiri</a></li>
+                        <li><a href="#">Gudur</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
                 <p>&copy; 2024 Sathwika Water Solutions. All rights reserved.</p>
-            </center>
+            </div>
         </div>
     </footer>
 
