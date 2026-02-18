@@ -61,8 +61,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, observerOptions);
 
-    // Apply animation classes to all major components
-    document.querySelectorAll('.hero-text, .hero-image, .feature-card, .product-card, .contact-left, .contact-right').forEach(el => {
+    // Apply animation classes to all major components - Updated for Luxury Theme
+    document.querySelectorAll('.hero-text, .hero-image, .feature-card, .product-card, .contact-left, .contact-right, .section-head').forEach(el => {
         el.classList.add('reveal-init');
         observer.observe(el);
     });
