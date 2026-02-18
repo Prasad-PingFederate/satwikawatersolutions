@@ -150,17 +150,48 @@ header {
     padding: 0 20px;
 }
 
+.logo {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.logo svg {
+    transition: transform 0.3s ease;
+}
+
+.logo:hover svg {
+    transform: scale(1.1) rotate(-5deg);
+}
+
 .logo-text {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: 600;
     color: var(--black);
+    line-height: 1;
     letter-spacing: -0.01em;
 }
 
 .logo-text span {
     font-weight: 400;
     color: var(--grey);
-    margin-left: 5px;
+    margin-left: 2px;
+}
+
+.benefit-item {
+    padding-left: 0;
+    position: relative;
+}
+
+.benefit-item h4 {
+    font-size: 1.1rem;
+    color: var(--black);
+}
+
+.benefit-item p {
+    font-size: 0.9rem;
+    color: var(--grey);
 }
 
 .nav-menu {

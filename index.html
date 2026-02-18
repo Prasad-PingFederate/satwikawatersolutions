@@ -63,6 +63,21 @@
     <header id="mainHeader">
         <div class="container header-content">
             <div class="logo">
+                <svg width="32" height="32" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    style="margin-right: 12px;">
+                    <path d="M50 5C30 5 15 25 15 45C15 70 50 95 50 95C50 95 85 70 85 45C85 25 70 5 50 5Z"
+                        fill="url(#logoGrad)" />
+                    <path d="M50 15C35 15 25 28 25 42C25 60 50 82 50 82C50 82 75 60 75 42C75 28 60 15 50 15Z"
+                        fill="white" fill-opacity="0.3" />
+                    <path d="M45 35C45 35 38 42 38 50C38 58 45 65 55 65C65 65 72 58 72 50C72 42 65 35 65 35"
+                        stroke="white" stroke-width="6" stroke-linecap="round" />
+                    <defs>
+                        <linearGradient id="logoGrad" x1="0" y1="0" x2="100" y2="100" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#00C2FF" />
+                            <stop offset="1" stop-color="#0071E3" />
+                        </linearGradient>
+                    </defs>
+                </svg>
                 <div class="logo-text">Sathwika <span>Water Solutions</span></div>
             </div>
             <nav class="nav-menu">
@@ -202,7 +217,53 @@
         </div>
     </section>
 
-    <!-- Apple Style Contact & Support Section -->
+    <!-- Molecular Technology: Nano Silver Section -->
+    <section class="tech-section" id="tech" style="padding: 140px 0; background: white;">
+        <div class="container">
+            <div class="tech-grid"
+                style="display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;">
+                <div class="tech-image reveal-init">
+                    <div style="background: #f5f5f7; padding: 40px; border-radius: 40px; text-align: center;">
+                        <img src="images/Aqua1.jpeg" alt="Silver Nano Technology"
+                            style="width: 100%; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.1);">
+                    </div>
+                </div>
+                <div class="tech-content reveal-init">
+                    <span
+                        style="color: #0071e3; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.8rem;">Advanced
+                        Science</span>
+                    <h2 style="font-size: 3.5rem; margin: 20px 0;">Molecular Purity. <br>Advanced Silver Nano.</h2>
+                    <p style="font-size: 1.2rem; line-height: 1.6; color: #424245; margin-bottom: 40px;">Ordinary
+                        filters catch dirt. Our Advanced Silver Nano Technology targets bacteria at the molecular level.
+                        By utilizing silver particles sized at 1-100 nanometers, we inhibit microbial growth before it
+                        even enters your glass.</p>
+
+                    <div class="benefit-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+                        <div class="benefit-item">
+                            <h4 style="font-size: 1.1rem; margin-bottom: 10px;">99.9% Sterilization</h4>
+                            <p style="font-size: 0.9rem; color: #86868b;">Eliminates pathonogenic bacteria through
+                                natural ionic action.</p>
+                        </div>
+                        <div class="benefit-item">
+                            <h4 style="font-size: 1.1rem; margin-bottom: 10px;">Biofilm Prevention</h4>
+                            <p style="font-size: 0.9rem; color: #86868b;">Prevents the slimy 'Biofilm' buildup inside
+                                filters for 2x longer life.</p>
+                        </div>
+                        <div class="benefit-item">
+                            <h4 style="font-size: 1.1rem; margin-bottom: 10px;">Zinc & Copper Plus</h4>
+                            <p style="font-size: 0.9rem; color: #86868b;">Infuses essential minerals for better immunity
+                                and metabolism.</p>
+                        </div>
+                        <div class="benefit-item">
+                            <h4 style="font-size: 1.1rem; margin-bottom: 10px;">Alkaline Balance</h4>
+                            <p style="font-size: 0.9rem; color: #86868b;">Maintains the perfect pH level for healthy
+                                digestion and skin.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <section class="contact-section" id="contact" style="padding: 120px 0; background: white;">
         <div class="container">
             <div class="contact-flex"
@@ -268,8 +329,17 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col" style="grid-column: span 2;">
-                    <h4 style="color: #1d1d1f; font-weight: 600;">Sathwika Water Solutions</h4>
-                    <p style="font-size: 0.9rem; margin-top: 15px;">Experience the perfect blend of technology and
+                    <div class="logo" style="margin-bottom: 20px;">
+                        <svg width="32" height="32" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"
+                            style="margin-right: 12px;">
+                            <path d="M50 5C30 5 15 25 15 45C15 70 50 95 50 95C50 95 85 70 85 45C85 25 70 5 50 5Z"
+                                fill="#0071E3" />
+                            <circle cx="50" cy="50" r="15" fill="white" />
+                        </svg>
+                        <h4 style="color: #1d1d1f; font-weight: 600; display: inline-block;">Sathwika Water Solutions
+                        </h4>
+                    </div>
+                    <p style="font-size: 0.9rem; margin-top: 5px;">Experience the perfect blend of technology and
                         purity. Serving Naidupeta with 18 years of excellence in water purification. Our systems are
                         designed for the modern Indian home, balancing health, taste, and aesthetics.</p>
                 </div>
