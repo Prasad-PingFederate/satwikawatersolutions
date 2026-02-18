@@ -799,17 +799,114 @@ body {
     gap: 0.75rem;
     background: #25D366;
     color: white;
-    padding: 1rem 2rem;
-    border-radius: 50px;
     text-decoration: none;
+    padding: 1rem;
+    border-radius: 12px;
     font-weight: 600;
     margin-top: var(--spacing-md);
     transition: all 0.3s ease;
 }
 
 .whatsapp-btn:hover {
-    background: #20BA5A;
+    background: #128C7E;
     transform: translateY(-2px);
+}
+
+.map-link {
+    display: inline-block;
+    margin-top: 10px;
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 8px 15px;
+    background: var(--primary-light);
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.map-link:hover {
+    background: var(--primary);
+    color: white;
+    text-decoration: none;
+}
+
+/* Google Maps Result Style */
+.google-result-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 15px;
+    padding: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.google-result-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.business-name {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.rating {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.9rem;
+}
+
+.stars {
+    color: #fbbc04;
+}
+
+.business-info {
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+.status-open {
+    color: #188038;
+    font-weight: 600;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 5px;
+}
+
+.action-btn {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    padding: 10px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    text-decoration: none;
+    color: var(--primary);
+    font-size: 0.8rem;
+    font-weight: 500;
+    transition: background 0.3s ease;
+}
+
+.action-btn:hover {
+    background: var(--bg-gray);
+}
+
+.action-icon {
+    font-size: 1.2rem;
+}
+.whatsapp-btn {
     box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
 }
 
