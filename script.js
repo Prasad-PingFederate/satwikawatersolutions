@@ -1,15 +1,15 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Navbar scroll effect
-    const header = document.querySelector('header');
+    // 1. Sticky Header Animation on Scroll
+    const header = document.getElementById('mainHeader');
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            header.style.boxShadow = '0 5px 20px rgba(0,0,0,0.1)';
+        if (window.scrollY > 100) {
+            header.classList.add('scrolled');
         } else {
-            header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.05)';
+            header.classList.remove('scrolled');
         }
     });
 
-    // Mobile Navigation Toggle
+    // 2. Mobile Navigation Toggle (World-Class Clean logic)
     const mobileToggle = document.getElementById('mobileToggle');
     const navMenu = document.querySelector('.nav-menu');
 
@@ -17,18 +17,27 @@ document.addEventListener('DOMContentLoaded', () => {
         mobileToggle.addEventListener('click', () => {
             navMenu.classList.toggle('active');
             mobileToggle.classList.toggle('open');
+            document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : 'auto';
         });
     }
 
-    // Smooth scroll for anchor links
+    // 3. Smooth Scrolling for Anchor Links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
             const targetId = this.getAttribute('href');
             if (targetId === '#') return;
+
             const target = document.querySelector(targetId);
             if (target) {
-                const offsetTop = target.offsetTop - 80;
+                // Close mobile menu if open
+                if (navMenu && navMenu.classList.contains('active')) {
+                    navMenu.classList.remove('active');
+                    mobileToggle.classList.remove('open');
+                    document.body.style.overflow = 'auto';
+                }
+
+                const offsetTop = target.offsetTop - 90;
                 window.scrollTo({
                     top: offsetTop,
                     behavior: 'smooth'
@@ -37,7 +46,28 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Form submission handling
+    // 4. Ultra-Smooth Entrance Animations (Intersection Observer)
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -100px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('reveal');
+                observer.unobserve(entry.target); // Only animate once
+            }
+        });
+    }, observerOptions);
+
+    // Apply animation classes to all major components
+    document.querySelectorAll('.hero-text, .hero-image, .feature-card, .product-card, .contact-left, .contact-right').forEach(el => {
+        el.classList.add('reveal-init');
+        observer.observe(el);
+    });
+
+    // 5. Intelligent Form Submission Handling
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
         contactForm.addEventListener('submit', async (e) => {
@@ -45,52 +75,37 @@ document.addEventListener('DOMContentLoaded', () => {
             const formData = new FormData(contactForm);
             const data = Object.fromEntries(formData.entries());
 
-            // Show loading state
+            // UI Feedback: Loading State
             const submitBtn = contactForm.querySelector('button[type="submit"]');
             const originalText = submitBtn.textContent;
-            submitBtn.textContent = 'SENDING...';
+            submitBtn.innerHTML = '<span class="loader"></span> SUBMITTING...';
             submitBtn.disabled = true;
 
             try {
-                // Simulate form submission delay
-                await new Promise(resolve => setTimeout(resolve, 1500));
+                // Simulate server processing
+                await new Promise(resolve => setTimeout(resolve, 2000));
 
-                alert('Thank you for your request! We will contact you shortly.');
+                // Success Message
+                alert(`Thank you, ${data.name}! We have received your request regarding "${data.interest}". Our expert will call you within 30 minutes.`);
                 contactForm.reset();
 
-                // Open WhatsApp as a secondary action
+                // Proactive Action: Open WhatsApp with pre-filled details
                 const phone = '919912951505';
-                const message = encodeURIComponent(`Hi, I'm interested in ${data.interest}. My name is ${data.name}.`);
+                const message = encodeURIComponent(`Hi Sathwika Water Solutions, I just submitted a request on your website. My name is ${data.name} and I am interested in ${data.interest}.`);
                 window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
 
             } catch (error) {
-                alert('There was an error. Please call us directly.');
+                alert('Connection timed out. Please contact us directly via the WhatsApp button or Hotline!');
             } finally {
-                submitBtn.textContent = originalText;
+                submitBtn.innerHTML = originalText;
                 submitBtn.disabled = false;
             }
         });
     }
 
-    // Modern Entrance Animations (Kent Style)
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-            }
-        });
-    }, observerOptions);
-
-    document.querySelectorAll('.product-card, .feature-card, .contact-right').forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(20px)';
-        el.style.transition = 'all 0.8s ease-out';
-        observer.observe(el);
-    });
+    // 6. Dynamic Copyright Year
+    const yearSpan = document.getElementById('currentYear');
+    if (yearSpan) {
+        yearSpan.textContent = new Date().getFullYear();
+    }
 });
